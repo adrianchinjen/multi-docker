@@ -18,18 +18,12 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
 
       - name: Build the Docker image
-        - run: docker build -t rallycoding/react-test -f ./client/Dockerfile.dev ./client
-        - run: docker run -e CI=true rallycoding/react-test npm test
-        - run: docker build -t rallycoding/multi-client ./client
-        - run: docker build -t rallycoding/multi-nginx ./nginx
-        - run: docker build -t rallycoding/multi-server ./server
-        - run: docker build -t rallycoding/multi-worker ./worker
-
-      - name: Docker Push
-        - run: docker push rallycoding/multi-client
-        - run: docker push rallycoding/multi-nginx
-        - run: docker push rallycoding/multi-server
-        - run: docker push rallycoding/multi-worker
+        run: docker build -t rallycoding/react-test -f ./client/Dockerfile.dev ./client
+        run: docker run -e CI=true rallycoding/react-test npm test
+        run: docker build -t rallycoding/multi-client ./client
+        run: docker build -t rallycoding/multi-nginx ./nginx
+        run: docker build -t rallycoding/multi-server ./server
+        run: docker build -t rallycoding/multi-worker ./worker
 
 
       # - run: docker build -t rallycoding/react-test -f ./client/Dockerfile.dev ./client
