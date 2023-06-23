@@ -28,13 +28,17 @@ jobs:
           docker build -t rallycoding/multi-nginx ./nginx
           docker build -t rallycoding/multi-server ./server
           docker build -t rallycoding/multi-worker ./worker
-
-      - name: Push
-        run: |-
           docker push rallycoding/multi-client
           docker push rallycoding/multi-nginx
           docker push rallycoding/multi-server
           docker push rallycoding/multi-worker
+
+      # - name: Push
+      #   run: |-
+      #     docker push rallycoding/multi-client
+      #     docker push rallycoding/multi-nginx
+      #     docker push rallycoding/multi-server
+      #     docker push rallycoding/multi-worker
 
       # - run: docker build -t rallycoding/react-test -f ./client/Dockerfile.dev ./client
       # - run: docker run -e CI=true rallycoding/react-test npm test
